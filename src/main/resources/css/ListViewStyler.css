@@ -1,0 +1,18 @@
+.list-cell{
+	-fx-background-radius: 10px;
+	-fx-border-radius: 10px;
+	-fx-background-color: white;
+}
+
+.list-cell:filled:hover{
+    -fx-background-color: #99DAF4;
+}
+
+.list-cell:selected{
+    -fx-background-color: #99DAF4;
+}
+
+.list-cell{
+    -fx-font-size: 20;
+    -fx-font-family: "SansSerif";
+}

@@ -1,0 +1,6 @@
+.progress-bar > .track {
+  -fx-text-box-border: white;
+  -fx-control-inner-background: white;
+}
+
+.progress-bar { -fx-accent: #99DAF4; }

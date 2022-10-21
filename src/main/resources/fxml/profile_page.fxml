@@ -1,0 +1,686 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1000.0" style="-fx-background-color: #EB4A5A; -fx-border-color: white;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.ProfilePageController">
+  <children>
+    <Label fx:id="usernameLabel" layoutX="298.0" layoutY="107.0" onMouseEntered="#onHoverUser" prefHeight="68.0" prefWidth="522.0" text="USER" textFill="WHITE">
+      <font>
+        <Font name="Arial Black" size="42.0" />
+      </font>
+    </Label>
+    <Pane layoutY="-10.0" prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
+    <ImageView fx:id="volumeImage" fitHeight="45.0" fitWidth="45.0" layoutX="60.0" layoutY="171.0" onMouseClicked="#onTextToSpeech" onMouseDragEntered="#onHoverTextToSpeech" onMouseEntered="#onHoverTextToSpeech" onMouseExited="#onVolumeExit" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../images/speaker-filled-audio-tool.png" />
+      </image>
+    </ImageView>
+    <Label fx:id="textToSpeechLabel" layoutX="69.0" layoutY="153.0" onMouseEntered="#onHoverTextToSpeechLabel" text="OFF">
+      <font>
+        <Font name="Arial Black" size="12.0" />
+      </font>
+    </Label>
+    <Button fx:id="backButton" layoutX="860.0" layoutY="17.0" mnemonicParsing="false" onAction="#onBack" onMouseEntered="#onHoverBack" onMouseExited="#onBackExit" prefHeight="35.0" prefWidth="125.0" style="-fx-background-radius: 100px; -fx-text-fill: white; -fx-background-color: #EB4A5A; -fx-text-fill: white; -fx-border-color: white; -fx-border-radius: 100px;" text="BACK" textAlignment="CENTER">
+      <font>
+        <Font name="Arial Black" size="21.0" />
+      </font>
+    </Button>
+    <ImageView fitHeight="85.0" fitWidth="78.0" layoutX="138.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
+      <image>
+        <Image url="@../images/drawicom.png" />
+      </image>
+    </ImageView>
+    <Label layoutX="31.0" layoutY="61.0" onMouseEntered="#onHoverTitle" prefHeight="47.0" prefWidth="195.0" text="JUST DRAW" textFill="WHITE">
+      <font>
+        <Font name="Leelawadee UI Bold" size="32.0" />
+      </font>
+    </Label>
+    <Circle fill="WHITE" layoutX="215.0" layoutY="192.0" radius="70.0" stroke="#7b7b7b" strokeType="INSIDE" />
+    <ImageView fx:id="userImage" fitHeight="111.0" fitWidth="107.0" layoutX="161.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../images/ProfilePics/GuestPic.png" />
+      </image>
+    </ImageView>
+    <ProgressBar fx:id="badgeProgress" layoutX="304.0" layoutY="239.0" prefHeight="20.0" prefWidth="382.0" progress="0.0" stylesheets="@../css/BadgeProgressStyler.css" />
+    <TabPane layoutY="277.0" prefHeight="404.0" prefWidth="1000.0" stylesheets="@../css/ProfileTabStyler.css" tabClosingPolicy="UNAVAILABLE">
+      <tabs>
+        <Tab text="STATS">
+          <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <HBox layoutX="20.0" layoutY="32.0" prefHeight="286.0" prefWidth="382.0">
+                  <children>
+                    <VBox prefHeight="286.0" prefWidth="233.0">
+                      <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="762.0">
+                          <children>
+                            <Label onMouseEntered="#onHoverGamesPlayed" prefHeight="43.0" prefWidth="258.0" text="Total Games:" textFill="WHITE">
+                              <font>
+                                <Font name="Arial Black" size="29.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                          <children>
+                            <Label lineSpacing="30.0" onMouseEntered="#onHoverGamesWon" prefHeight="43.0" prefWidth="215.0" text="Total Wins:" textFill="WHITE">
+                              <font>
+                                <Font name="Arial Black" size="29.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="370.0">
+                          <children>
+                            <Label onMouseEntered="#onHoverFastest" prefHeight="43.0" prefWidth="240.0" text="Fastest Time:" textFill="WHITE">
+                              <font>
+                                <Font name="Arial Black" size="29.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" />
+                      </children>
+                    </VBox>
+                    <VBox prefHeight="286.0" prefWidth="142.0">
+                      <children>
+                        <HBox alignment="CENTER_RIGHT">
+                          <children>
+                            <Label fx:id="gameLabel" alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="102.0" text="10000" textAlignment="RIGHT">
+                              <font>
+                                <Font name="Arial Black" size="30.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT">
+                          <children>
+                            <Label fx:id="winLabel" alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="101.0" text="10000" textAlignment="RIGHT">
+                              <font>
+                                <Font name="Arial Black" size="30.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="195.0">
+                          <children>
+                            <Label fx:id="fastestLabel" alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="58.0" text="60s" textAlignment="RIGHT">
+                              <font>
+                                <Font name="Arial Black" size="30.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                      </children>
+                    </VBox>
+                  </children>
+                </HBox>
+                <Pane layoutX="405.0" prefHeight="363.0" prefWidth="1.0" style="-fx-background-color: white;" />
+                <HBox layoutX="430.0" layoutY="30.0" prefHeight="286.0" prefWidth="563.0">
+                  <children>
+                    <VBox prefHeight="286.0" prefWidth="318.0">
+                      <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="762.0">
+                          <children>
+                            <Label onMouseEntered="#onHoverGamesPlayed" prefHeight="43.0" prefWidth="314.0" text="Current Win Streak:" textFill="WHITE">
+                              <font>
+                                <Font name="Arial Black" size="29.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT">
+                          <children>
+                            <Label lineSpacing="30.0" onMouseEntered="#onHoverGamesWon" prefHeight="43.0" prefWidth="215.0" text="Easy Wins:" textFill="WHITE">
+                              <font>
+                                <Font name="Arial Black" size="29.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="370.0">
+                          <children>
+                            <Label onMouseEntered="#onHoverFastest" prefHeight="43.0" prefWidth="240.0" text="Medium Wins:" textFill="WHITE">
+                              <font>
+                                <Font name="Arial Black" size="29.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" />
+                        <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="370.0">
+                          <children>
+                            <Label onMouseEntered="#onHoverFastest" prefHeight="43.0" prefWidth="240.0" text="Hard Wins:" textFill="WHITE">
+                              <font>
+                                <Font name="Arial Black" size="29.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="46.0" prefWidth="370.0">
+                          <children>
+                            <Label onMouseEntered="#onHoverFastest" prefHeight="43.0" prefWidth="240.0" text="Master Wins:" textFill="WHITE">
+                              <font>
+                                <Font name="Arial Black" size="29.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                      </children>
+                    </VBox>
+                    <VBox prefHeight="286.0" prefWidth="238.0">
+                      <children>
+                        <HBox alignment="CENTER_RIGHT">
+                          <children>
+                            <Label fx:id="winstreakLabel" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="46.0" prefWidth="102.0" text="10000" textAlignment="RIGHT">
+                              <font>
+                                <Font name="Arial Black" size="30.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT">
+                          <children>
+                            <Label fx:id="easyWinLabel" alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="101.0" text="10000" textAlignment="RIGHT">
+                              <font>
+                                <Font name="Arial Black" size="30.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="195.0">
+                          <children>
+                            <Label fx:id="mediumWinLabel" alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="102.0" text="10000" textAlignment="RIGHT">
+                              <font>
+                                <Font name="Arial Black" size="30.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT">
+                          <children>
+                            <Label fx:id="hardWinLabel" alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="102.0" text="10000" textAlignment="RIGHT">
+                              <font>
+                                <Font name="Arial Black" size="30.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT">
+                          <children>
+                            <Label fx:id="masterWinLabel" alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="102.0" text="10000" textAlignment="RIGHT">
+                              <font>
+                                <Font name="Arial Black" size="30.0" />
+                              </font>
+                            </Label>
+                          </children>
+                        </HBox>
+                      </children>
+                    </VBox>
+                  </children>
+                </HBox>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="BADGES">
+          <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+              <children>
+                <ScrollPane hbarPolicy="NEVER" layoutX="38.0" layoutY="10.0" prefHeight="347.0" prefWidth="938.0" stylesheets="@../css/BadgeListStyler.css">
+                  <content>
+                    <VBox prefHeight="601.0" prefWidth="898.0" spacing="5.0">
+                      <children>
+                        <HBox prefHeight="70.0" prefWidth="898.0" spacing="20.0">
+                          <children>
+                            <Pane prefHeight="74.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                              <children>
+                                <ImageView fx:id="secTen" fitHeight="70.0" fitWidth="70.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                    <Image url="@../images/Badges/10Sec.png" />
+                                  </image>
+                                </ImageView>
+                                <VBox layoutX="100.0" layoutY="4.0">
+                                  <children>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="10 Second Badge">
+                                      <font>
+                                        <Font name="Arial Black" size="19.0" />
+                                      </font>
+                                    </Label>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Beat the game under 10 seconds">
+                                      <font>
+                                        <Font name="SansSerif" size="18.0" />
+                                      </font>
+                                    </Label>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </Pane>
+                            <Pane prefHeight="74.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                              <children>
+                                <ImageView fx:id="secThirty" fitHeight="70.0" fitWidth="70.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                    <Image url="@../images/Badges/30sec.png" />
+                                  </image>
+                                </ImageView>
+                                <VBox layoutX="100.0" layoutY="4.0">
+                                  <children>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="30 Second Badge">
+                                      <font>
+                                        <Font name="Arial Black" size="19.0" />
+                                      </font>
+                                    </Label>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Beat the game under 30 seconds">
+                                      <font>
+                                        <Font name="SansSerif" size="18.0" />
+                                      </font>
+                                    </Label>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </Pane>
+                          </children>
+                        </HBox>
+                        <HBox prefHeight="70.0" prefWidth="898.0" spacing="20.0">
+                          <children>
+                            <Pane prefHeight="74.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                              <children>
+                                <ImageView fx:id="fiveGames" fitHeight="70.0" fitWidth="70.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                    <Image url="@../images/Badges/5Games.png" />
+                                  </image>
+                                </ImageView>
+                                <VBox layoutX="100.0" layoutY="4.0">
+                                  <children>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="5 Games Badge">
+                                      <font>
+                                        <Font name="Arial Black" size="19.0" />
+                                      </font>
+                                    </Label>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Play 5 games">
+                                      <font>
+                                        <Font name="SansSerif" size="18.0" />
+                                      </font>
+                                    </Label>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </Pane>
+                            <Pane prefHeight="74.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                              <children>
+                                <ImageView fx:id="tenGames" fitHeight="70.0" fitWidth="70.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                    <Image url="@../images/Badges/10Games.png" />
+                                  </image>
+                                </ImageView>
+                                <VBox layoutX="100.0" layoutY="4.0">
+                                  <children>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="10 Games Badge">
+                                      <font>
+                                        <Font name="Arial Black" size="19.0" />
+                                      </font>
+                                    </Label>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Play 10 games">
+                                      <font>
+                                        <Font name="SansSerif" size="18.0" />
+                                      </font>
+                                    </Label>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </Pane>
+                          </children>
+                        </HBox>
+                        <HBox prefHeight="70.0" prefWidth="898.0" spacing="20.0">
+                          <children>
+                            <Pane prefHeight="74.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                              <children>
+                                <ImageView fx:id="fiftyGames" fitHeight="70.0" fitWidth="70.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                    <Image url="@../images/Badges/50Games.png" />
+                                  </image>
+                                </ImageView>
+                                <VBox layoutX="100.0" layoutY="4.0">
+                                  <children>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="50 Games Badge">
+                                      <font>
+                                        <Font name="Arial Black" size="19.0" />
+                                      </font>
+                                    </Label>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Play 50  games">
+                                      <font>
+                                        <Font name="SansSerif" size="18.0" />
+                                      </font>
+                                    </Label>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </Pane>
+                            <Pane prefHeight="74.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                              <children>
+                                <ImageView fx:id="hundredGames" fitHeight="70.0" fitWidth="70.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                    <Image url="@../images/Badges/100Games.png" />
+                                  </image>
+                                </ImageView>
+                                <VBox layoutX="100.0" layoutY="4.0">
+                                  <children>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="100 Games Badge">
+                                      <font>
+                                        <Font name="Arial Black" size="19.0" />
+                                      </font>
+                                    </Label>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Play 100 games">
+                                      <font>
+                                        <Font name="SansSerif" size="18.0" />
+                                      </font>
+                                    </Label>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </Pane>
+                          </children>
+                        </HBox>
+                        <HBox prefHeight="70.0" prefWidth="898.0" spacing="20.0">
+                          <children>
+                            <Pane prefHeight="74.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                              <children>
+                                <ImageView fx:id="fiveStreak" fitHeight="70.0" fitWidth="70.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                    <Image url="@../images/Badges/5W.png" />
+                                  </image>
+                                </ImageView>
+                                <VBox layoutX="100.0" layoutY="4.0">
+                                  <children>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="5 Win Streak Badge">
+                                      <font>
+                                        <Font name="Arial Black" size="19.0" />
+                                      </font>
+                                    </Label>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Win 5 games in a row">
+                                      <font>
+                                        <Font name="SansSerif" size="18.0" />
+                                      </font>
+                                    </Label>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </Pane>
+                            <Pane prefHeight="74.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                              <children>
+                                <ImageView fx:id="tenStreak" fitHeight="70.0" fitWidth="70.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                    <Image url="@../images/Badges/10W.png" />
+                                  </image>
+                                </ImageView>
+                                <VBox layoutX="100.0" layoutY="4.0">
+                                  <children>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="10 Win Streak Badge">
+                                      <font>
+                                        <Font name="Arial Black" size="19.0" />
+                                      </font>
+                                    </Label>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Win 10 games in a row">
+                                      <font>
+                                        <Font name="SansSerif" size="18.0" />
+                                      </font>
+                                    </Label>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </Pane>
+                          </children>
+                        </HBox>
+                        <HBox prefHeight="70.0" prefWidth="898.0" spacing="20.0">
+                          <children>
+                            <Pane prefHeight="74.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                              <children>
+                                <ImageView fx:id="fiftyStreak" fitHeight="70.0" fitWidth="70.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                    <Image url="@../images/Badges/50W.png" />
+                                  </image>
+                                </ImageView>
+                                <VBox layoutX="100.0" layoutY="4.0">
+                                  <children>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="50 Win Streak Badge">
+                                      <font>
+                                        <Font name="Arial Black" size="19.0" />
+                                      </font>
+                                    </Label>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Win 50 games in a row">
+                                      <font>
+                                        <Font name="SansSerif" size="18.0" />
+                                      </font>
+                                    </Label>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </Pane>
+                            <Pane prefHeight="74.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                              <children>
+                                <ImageView fx:id="hundredStreak" fitHeight="70.0" fitWidth="70.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                    <Image url="@../images/Badges/100W.png" />
+                                  </image>
+                                </ImageView>
+                                <VBox layoutX="100.0" layoutY="4.0">
+                                  <children>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="100 Win Streak Badge">
+                                      <font>
+                                        <Font name="Arial Black" size="19.0" />
+                                      </font>
+                                    </Label>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Win 100 games in a row">
+                                      <font>
+                                        <Font name="SansSerif" size="18.0" />
+                                      </font>
+                                    </Label>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </Pane>
+                          </children>
+                        </HBox>
+                        <HBox prefHeight="70.0" prefWidth="898.0" spacing="20.0">
+                          <children>
+                            <Pane prefHeight="74.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                              <children>
+                                <ImageView fx:id="easyWins" fitHeight="70.0" fitWidth="70.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                    <Image url="@../images/Badges/10EasyW.png" />
+                                  </image>
+                                </ImageView>
+                                <VBox layoutX="100.0" layoutY="4.0">
+                                  <children>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Easy Difficulty Badge">
+                                      <font>
+                                        <Font name="Arial Black" size="19.0" />
+                                      </font>
+                                    </Label>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Win 10 games on easy mode">
+                                      <font>
+                                        <Font name="SansSerif" size="18.0" />
+                                      </font>
+                                    </Label>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </Pane>
+                            <Pane prefHeight="74.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                              <children>
+                                <ImageView fx:id="mediumWins" fitHeight="70.0" fitWidth="70.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                    <Image url="@../images/Badges/10MediumW.png" />
+                                  </image>
+                                </ImageView>
+                                <VBox layoutX="100.0" layoutY="4.0">
+                                  <children>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Medium Difficulty Badge">
+                                      <font>
+                                        <Font name="Arial Black" size="19.0" />
+                                      </font>
+                                    </Label>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Win 10 games on medium mode">
+                                      <font>
+                                        <Font name="SansSerif" size="18.0" />
+                                      </font>
+                                    </Label>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </Pane>
+                          </children>
+                        </HBox>
+                        <HBox prefHeight="70.0" prefWidth="898.0" spacing="20.0">
+                          <children>
+                            <Pane prefHeight="74.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                              <children>
+                                <ImageView fx:id="hardWins" fitHeight="70.0" fitWidth="70.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                    <Image url="@../images/Badges/10HardW.png" />
+                                  </image>
+                                </ImageView>
+                                <VBox layoutX="100.0" layoutY="4.0">
+                                  <children>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Hard Difficulty Badge">
+                                      <font>
+                                        <Font name="Arial Black" size="19.0" />
+                                      </font>
+                                    </Label>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Win 10 games on hard mode">
+                                      <font>
+                                        <Font name="SansSerif" size="18.0" />
+                                      </font>
+                                    </Label>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </Pane>
+                            <Pane prefHeight="74.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                              <children>
+                                <ImageView fx:id="masterWins" fitHeight="70.0" fitWidth="70.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                    <Image url="@../images/Badges/10MasterW.png" />
+                                  </image>
+                                </ImageView>
+                                <VBox layoutX="100.0" layoutY="4.0">
+                                  <children>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Master Difficulty Badge">
+                                      <font>
+                                        <Font name="Arial Black" size="19.0" />
+                                      </font>
+                                    </Label>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Win 10 games on master mode">
+                                      <font>
+                                        <Font name="SansSerif" size="18.0" />
+                                      </font>
+                                    </Label>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </Pane>
+                          </children>
+                        </HBox>
+                        <HBox prefHeight="70.0" prefWidth="898.0" spacing="20.0">
+                          <children>
+                            <Pane prefHeight="74.0" prefWidth="439.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                              <children>
+                                <ImageView fx:id="godArtist" fitHeight="70.0" fitWidth="70.0" layoutX="3.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+                                  <image>
+                                    <Image url="@../images/Badges/GodArtist.png" />
+                                  </image>
+                                </ImageView>
+                                <VBox layoutX="100.0" layoutY="4.0">
+                                  <children>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="God Artist Badge">
+                                      <font>
+                                        <Font name="Arial Black" size="19.0" />
+                                      </font>
+                                    </Label>
+                                    <Label prefHeight="29.0" prefWidth="295.0" text="Win 100 games on all modes">
+                                      <font>
+                                        <Font name="SansSerif" size="18.0" />
+                                      </font>
+                                    </Label>
+                                  </children>
+                                </VBox>
+                              </children>
+                            </Pane>
+                          </children>
+                        </HBox>
+                      </children>
+                    </VBox>
+                  </content>
+                </ScrollPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+        <Tab text="HISTORY">
+          <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="992.0">
+              <children>
+                <VBox layoutY="11.0" prefHeight="357.0" prefWidth="1000.0">
+                  <children>
+                    <Label fx:id="historyLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="1000.0" text="words" textAlignment="CENTER">
+                      <font>
+                        <Font name="Arial Black" size="32.0" />
+                      </font>
+                    </Label>
+                    <HBox alignment="CENTER" prefHeight="296.0" prefWidth="1000.0">
+                      <children>
+                        <ListView fx:id="historyListView" onMouseClicked="#onSelectWord" onMouseEntered="#onHoverHistory" prefHeight="303.0" prefWidth="408.0" styleClass="list-cell" stylesheets="@../css/ListViewStyler.css" />
+                      </children>
+                    </HBox>
+                  </children>
+                </VBox>
+              </children>
+            </AnchorPane>
+          </content>
+        </Tab>
+      </tabs>
+    </TabPane>
+    <HBox layoutX="277.0" layoutY="166.0" prefHeight="50.0" prefWidth="208.0">
+      <children>
+        <Label alignment="CENTER" onMouseEntered="#onHoverWinRate" prefHeight="50.0" prefWidth="202.0" text="WIN RATE:" textAlignment="CENTER" textFill="WHITE">
+          <font>
+            <Font name="Arial Black" size="26.0" />
+          </font>
+        </Label>
+      </children>
+    </HBox>
+    <Label fx:id="winrateLabel" layoutX="465.0" layoutY="159.0" prefHeight="59.0" prefWidth="158.0" text="0%">
+      <font>
+        <Font name="Arial Black" size="35.0" />
+      </font>
+    </Label>
+    <HBox layoutX="303.0" layoutY="211.0" prefHeight="25.0" prefWidth="290.0">
+      <children>
+        <Label fx:id="badgeLabel" onMouseEntered="#onHoverNumBadges" prefHeight="27.0" prefWidth="295.0" text="You've unlocked 0/15 Badges" textFill="WHITE">
+          <font>
+            <Font name="Arial Black" size="18.0" />
+          </font>
+        </Label>
+      </children>
+    </HBox>
+    <Label fx:id="badgePercentage" layoutX="597.0" layoutY="208.0" opacity="0.74" prefHeight="34.0" prefWidth="165.0" text="(0%)" textFill="#d9d5d5">
+      <font>
+        <Font name="Arial Black" size="18.0" />
+      </font>
+    </Label>
+  </children>
+</Pane>

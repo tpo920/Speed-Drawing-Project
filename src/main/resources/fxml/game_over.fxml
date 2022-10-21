@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1000.0" style="-fx-background-color: #EB4A5A; -fx-border-color: white; -fx-border-width: 3;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.GameOverController">
+   <children>
+      <Pane layoutY="-10.0" prefHeight="50.0" prefWidth="1000.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
+      <ImageView fitHeight="260.0" fitWidth="272.0" layoutX="570.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" style="-fx-opacity: 0.8;">
+         <image>
+            <Image url="@../images/drawicom.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="138.0" layoutY="60.0" onMouseEntered="#onHoverTitle" prefHeight="182.0" prefWidth="717.0" text="JUST DRAW" textFill="WHITE">
+         <font>
+            <Font name="Leelawadee UI Bold" size="125.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" layoutX="158.0" layoutY="268.0" prefHeight="145.0" prefWidth="842.0">
+         <children>
+            <Label fx:id="winLoseLabel" alignment="CENTER" contentDisplay="CENTER" onMouseEntered="#onHoverWinLose" prefHeight="146.0" prefWidth="876.0" text="YOU WON" textAlignment="CENTER" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="Arial Black" size="50.0" />
+               </font>
+               <padding>
+                  <Insets left="200.0" top="70.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+      <ImageView fx:id="volumeImage" fitHeight="45.0" fitWidth="45.0" layoutX="903.0" layoutY="602.0" onMouseClicked="#onTextToSpeech" onMouseDragEntered="#onHoverTextToSpeech" onMouseEntered="#onHoverTextToSpeech" onMouseExited="#onVolumeExit" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/speaker-filled-audio-tool.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="textToSpeechLabel" layoutX="912.0" layoutY="584.0" onMouseEntered="#onHoverTextToSpeechLabel" text="OFF">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" layoutX="120.0" layoutY="561.0" prefHeight="103.0" prefWidth="761.0" spacing="65.0">
+         <children>
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#onSave" onMouseEntered="#onHoverSave" onMouseExited="#onSaveExit" prefHeight="65.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: white; -fx-border-width: 2; -fx-background-color: #EB4A5A; -fx-text-fill: white;" text="SAVE IMAGE">
+               <font>
+                  <Font name="Arial Black" size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="menuButton" mnemonicParsing="false" onAction="#onClickMenu" onMouseEntered="#onHoverMenu" onMouseExited="#onMenuExit" prefHeight="65.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 2; -fx-border-color: white; -fx-background-color: #EB4A5A; -fx-text-fill: white;" text="MENU">
+               <font>
+                  <Font name="Arial Black" size="21.0" />
+               </font>
+            </Button>
+            <Button fx:id="playAgainButton" mnemonicParsing="false" onAction="#onPlayAgain" onMouseEntered="#onHoverPlayAgain" onMouseExited="#onPlayAgainExit" prefHeight="65.0" prefWidth="200.0" style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-width: 2; -fx-border-color: white; -fx-text-fill: white; -fx-background-color: #EB4A5A;" text="PLAY AGAIN">
+               <font>
+                  <Font name="Arial Black" size="21.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="256.0" layoutY="449.0" prefHeight="77.0" prefWidth="660.0" spacing="40.0">
+         <children>
+            <Label fx:id="timeLabel" alignment="CENTER" onMouseEntered="#onHoverTimeLeft" prefHeight="78.0" prefWidth="584.0" text="TIME LEFT: " textFill="WHITE">
+               <font>
+                  <Font name="Arial Black" size="25.0" />
+               </font>
+               <padding>
+                  <Insets left="200.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+      <BorderPane layoutX="133.0" layoutY="238.0" prefHeight="319.0" prefWidth="337.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-width: 5; -fx-border-color: #000000; -fx-border-radius: 15;">
+         <center>
+            <ImageView fx:id="usersImage" fitHeight="237.0" fitWidth="284.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</Pane>

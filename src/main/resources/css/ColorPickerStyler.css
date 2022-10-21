@@ -1,0 +1,14 @@
+.color-picker {
+    -fx-color-rect-width: 60px;
+    -fx-color-rect-height: 30px;
+    -fx-color-label-visible: false;
+    -fx-min-width: 85px;
+    -fx-min-height: 50px;
+    -fx-pref-width: 85px;
+    -fx-pref-height: 50px;
+    -fx-background-color: transparent;
+  
+}
+.color-picker .arrow, .color-picker .arrow-button{
+    -fx-background-color: transparent;
+}
