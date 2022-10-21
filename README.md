@@ -1,5 +1,6 @@
 
-To Run the Game:
+`To Run the Game:`
+
 Unix/MacOsX:  
 `./mvnw clean test`
 
